@@ -1,0 +1,73 @@
+.text {
+  width: 100px;
+  height: 100px;
+  background-color: skyblue;
+}
+* {
+  margin: 0;
+}
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+}
+.chessboard {
+  display: grid;
+  /* background-color: #87ceeb; white #eafffa, green #81b64c */
+  width: 640px;
+  height: 640px;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  grid-template-columns: repeat(8,80px);
+  grid-template-rows: repeat(8,80px);
+}
+
+.chessboard .cell{
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  width: 80px;
+  height: 80px;
+  z-index: 0;
+}
+.green-cell{
+  background-color: #81b64c;
+}
+.white-cell{
+  background-color: #eafffa;
+}
+.red-cell{
+  background-color: #fa3838;
+}
+
+.click-cell{
+  background-color: "#c7c704";
+}
+
+.cell:hover {
+  background-color: #ffff33;
+}
+.cell img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.cell button{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.Numbers{
+  position:absolute;
+  font-size: small;
+  color: black;
+  top: 5px;
+  left: 5px;
+}
