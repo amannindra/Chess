@@ -63,10 +63,10 @@ function Board(props) {
       num += 1;
       const piece = props.game[i][j];
       const image = getImageForPiece(piece);
-      
+      console.log("board currentPlayer: " + props.currentPlayer);
       boardGame.push(
         <Piece
-          key={`${i}-${j}`}//No change here
+          key={`${i}-${j}`} //No change here
           num={num}
           currentPiece={props.currentPiece}
           setcurrentPiece={props.setcurrentPiece}
@@ -77,8 +77,8 @@ function Board(props) {
           Character={image}
           piecePosition={props.piecePosition}
           setpiecePosition={props.setpiecePosition}
-          currentPlayer = {props.currentPlayer}
-          setcurrentPlayer = {props.setcurrentPlayer}
+          currentPlayer={props.currentPlayer}
+          setcurrentPlayer={props.setcurrentPlayer}
         />
       );
     }

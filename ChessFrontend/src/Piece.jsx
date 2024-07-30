@@ -9,9 +9,11 @@ function Piece(props) {
     yposition,
     currentPiece
   ) => {
+    alert();
     switch (currentPiece) {
       case "bRook":
         console.log("Possibility: bRook");
+
         return true;
       case "bKnight":
         console.log("Possibility: bRook");
