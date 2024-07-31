@@ -57,13 +57,12 @@ function Board(props) {
         return null;
     }
   };
-  for (let i = 0; i < 8; i++) {
+  for (let i = 8; i > 0; i--) {
     for (let j = 0; j < 8; j++) {
       // console.log("This is: " + i + ":" + j + ": (" + props.game[i][j] + ")");
       num += 1;
-      const piece = props.game[i][j];
+      const piece = props.game[8-i][j];
       const image = getImageForPiece(piece);
-      console.log("board currentPlayer: " + props.currentPlayer);
       boardGame.push(
         <Piece
           key={`${i}-${j}`} //No change here

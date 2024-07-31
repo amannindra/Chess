@@ -19,7 +19,7 @@ class Chess:
                 "wKing", "wBishop", "wKnight", "wRook"]
         ]
         self.currentPiece = ""
-        self.previousPosition = [None, None]
+        self.previousPosition = [None, None] # [x,y]
         self.currentPlayer = "White"
         self.checkMate = False
 

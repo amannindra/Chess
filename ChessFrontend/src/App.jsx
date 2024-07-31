@@ -50,7 +50,6 @@ function App() {
   }
   return (
     <>
-      {console.log("App: currentPlayer: " + currentPlayer)}
       <Board
         game={data.game}
         currentPiece={currentPiece}

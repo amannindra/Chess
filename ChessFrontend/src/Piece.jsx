@@ -9,54 +9,75 @@ function Piece(props) {
     yposition,
     currentPiece
   ) => {
-    alert();
     switch (currentPiece) {
       case "bRook":
         console.log("Possibility: bRook");
 
         return true;
       case "bKnight":
-        console.log("Possibility: bRook");
+        console.log("Possibility: bKnight");
         return;
       case "bBishop":
-        console.log("Possibility: bRook");
+        console.log("Possibility: bBishop");
         return;
       case "bQueen":
-        console.log("Possibility: bRook");
+        console.log("Possibility: bQueen");
         return;
       case "bKing":
-        console.log("Possibility: bRook");
+        console.log("Possibility: bKing");
         return;
       case "bPawn":
-        console.log("Possibility: bRook");
+        console.log("Possibility: bPawn");
         return;
       case "wRook":
-        console.log("Possibility: bRook");
+        console.log("Possibility: wRook");
         return;
       case "wKnight":
-        console.log("Possibility: bRook");
+        console.log("Possibility: wKnight");
         return;
       case "wBishop":
-        console.log("Possibility: bRook");
+        console.log("Possibility: wBishop");
         return;
       case "wQueen":
-        console.log("Possibility: bRook");
+        console.log("Possibility: wQueen");
         return;
       case "wKing":
-        console.log("Possibility: bRook");
+        console.log("Possibility: wKing");
         return;
       case "wPawn":
-        console.log("Possibility: bRook");
-        if (
-          xposition == piecePosition[0] + 1 ||
-          xposition == piecePosition[0] + 2
-        ) {
-          alert("first Pass");
-          if (yposition == piecePosition[1]) {
-            alert("Second Pass");
-            if (game2[xposition][yposition] == null) {
-              alert("third Pass");
-              return true;
+        console.log("Possibility: wPawn");
+
+        console.log("xposition: " + xposition);
+        console.log("piecePosition[0]: " + piecePosition[0]);
+        console.log("piecePosition[1]: " + piecePosition[1]);
+
+        if (piecePosition[0] == 6) {
+          if (
+            xposition == piecePosition[0] + 1 ||
+            xposition == piecePosition[0] + 1
+          ) {
+            alert("first Pass");
+            if (yposition == piecePosition[1]) {
+              alert("Second Pass");
+              console.log(
+                "game2[xposition][yposition]: " + game2[xposition][yposition]
+              );
+              if (game2[xposition][yposition] == "") {
+                alert("third Pass");
+                return true;
+              }
+            }
+          } else if (xposition == piecePosition[0] + 1) {
+            alert("6: first pass");
+            if (yposition == piecePosition[1]) {
+              alert("6: Second Pass");
+              console.log(
+                "game2[xposition][yposition]: " + game2[xposition][yposition]
+              );
+              if (game2[xposition][yposition] == "") {
+                alert("6: third Pass");
+                return true;
+              }
             }
           }
         }
@@ -90,7 +111,7 @@ function Piece(props) {
       if (game[xposition][yposition]) {
         // Checks if player is clicking on a piece
         setcurrentPiece(game[xposition][yposition]);
-        setpiecePosition([xposition, yposition]);
+        setpiecePosition([8 - xposition, yposition]);
       } else {
         if (currentPlayer == "White" && currentPiece[0] == "w") {
           //checks if a player is a piece
