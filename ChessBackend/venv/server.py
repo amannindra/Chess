@@ -9,17 +9,17 @@ class Chess:
                 "bKing", "bBishop", "bKnight", "bRook"],
             ["bPawn", "bPawn", "bPawn", "bPawn",
                 "bPawn", "bPawn", "bPawn", "bPawn"],
-            ["", "", "", "", "", "", "", ""],
-            ["", "", "", "", "", "", "", ""],
-            ["", "", "", "", "", "", "", ""],
-            ["", "", "", "", "", "", "", ""],
+            ["None", "None", "None", "None", "None", "None", "None", "None"],
+            ["None", "None", "None", "None", "None", "None", "None", "None"],
+            ["None", "None", "None", "None", "None", "None", "None", "None"],
+            ["None", "None", "None", "None", "None", "None", "None", "None"],
             ["wPawn", "wPawn", "wPawn", "wPawn",
                 "wPawn", "wPawn", "wPawn", "wPawn"],
             ["wRook", "wKnight", "wBishop", "wQueen",
                 "wKing", "wBishop", "wKnight", "wRook"]
         ]
         self.currentPiece = ""
-        self.previousPosition = [None, None] # [x,y]
+        self.previousPosition = [None, None]  # [x,y]
         self.currentPlayer = "White"
         self.checkMate = False
 

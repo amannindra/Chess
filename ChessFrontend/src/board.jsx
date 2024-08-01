@@ -1,3 +1,4 @@
+"use strict";
 import React, { useEffect } from "react";
 import Piece from "./Piece.jsx";
 import BBishop from "./Images/bBishop.png";
@@ -57,11 +58,11 @@ function Board(props) {
         return null;
     }
   };
-  for (let i = 8; i > 0; i--) {
+  for (let i = 0; i < 8; i++) {
     for (let j = 0; j < 8; j++) {
       // console.log("This is: " + i + ":" + j + ": (" + props.game[i][j] + ")");
       num += 1;
-      const piece = props.game[8-i][j];
+      const piece = props.game[i][j];
       const image = getImageForPiece(piece);
       boardGame.push(
         <Piece
@@ -87,33 +88,3 @@ function Board(props) {
 }
 
 export default Board;
-
-// const full = [];
-//   for (let x = 0; x < 8; x++) {
-//     const row = [];
-//     for (let y = 0; y < 8; y++) {
-//       const backgroundColor = (x + y) % 2 === 0 ? "#81b64c" : "#eafffa";
-//       row.push({
-//         id: `${x}.${y}`,
-//         character: reset[x][y],
-//         backgroundColor: backgroundColor,
-//       });
-//     }
-//     full.push(row);
-//   }
-//   setGame(full);
-
-// {game.map((row, rowIndex) => (
-//   <div key={rowIndex} className="row">
-//     {row.map((cell) => (
-//       <div
-//         key={cell.id}
-//         id={cell.id}
-//         className="cell"
-//         style={{ backgroundColor: cell.backgroundColor }}
-//       >
-//         <button onClick={() => alert("fdklsdfklfsdklkl")}>Select</button>
-//       </div>
-//     ))}
-//   </div>
-// ))}

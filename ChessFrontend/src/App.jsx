@@ -2,10 +2,11 @@ import "./App.css";
 import Board from "./board.jsx";
 import axios from "axios";
 import { useState, useEffect } from "react";
-
+import ErrorBoundary from "./ErrorBoundary";
+("use strict");
 function App() {
   const [data, setData] = useState(null);
-
+  const [game, setGame] = useState(null);
   const [piecePosition, setpiecePosition] = useState(null);
   const [currentPiece, setcurrentPiece] = useState(null);
   const [currentPlayer, setcurrentPlayer] = useState(null);
@@ -18,6 +19,7 @@ function App() {
         setcurrentPiece(datas.currentPiece);
         setcurrentPlayer(datas.currentPlayer);
         setCheckMate(datas.checkMate);
+        setGame(datas.game);
         setData(datas);
         console.log(datas);
       })
@@ -50,18 +52,21 @@ function App() {
   }
   return (
     <>
-      <Board
-        game={data.game}
-        currentPiece={currentPiece}
-        setcurrentPiece={setcurrentPiece}
-        currentPlayer={currentPlayer}
-        setcurrentPlayer={setcurrentPlayer}
-        piecePosition={piecePosition}
-        setpiecePosition={setpiecePosition}
-        checkMate={checkMate}
-        setCheckMate={setCheckMate}
-        onClick={() => handleUpload(data)}
-      />
+      <ErrorBoundary>
+        <Board
+          game={game}
+          setGame={setGame}
+          currentPiece={currentPiece}
+          setcurrentPiece={setcurrentPiece}
+          currentPlayer={currentPlayer}
+          setcurrentPlayer={setcurrentPlayer}
+          piecePosition={piecePosition}
+          setpiecePosition={setpiecePosition}
+          checkMate={checkMate}
+          setCheckMate={setCheckMate}
+          onClick={() => handleUpload(data)}
+        />
+      </ErrorBoundary>
     </>
   );
 }
