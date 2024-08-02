@@ -13,6 +13,7 @@ import WRook from "./Images/wRook.png";
 import WKnight from "./Images/wKnight.png";
 import WKing from "./Images/wKing.png";
 import WPawn from "./Images/wPawn.png";
+import "./board.css"
 
 // function start(setGame) {
 //   for (let x = 0; x < 8; x++) {
