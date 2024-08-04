@@ -1,0 +1,14 @@
+.leftPanel {
+  display: flex;
+  flex-direction: row;
+  background-color: blue;
+  flex: 0.5;
+}
+.SideBlock{
+    display: flex;
+    width: 100%;
+    height: fit-content;/*Put FitContent Later*/
+    background-color: grey;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}  
