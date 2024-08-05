@@ -1,11 +1,5 @@
-import "./MainPanel.css";
 function MainPanel() {
-  return (
-    <div
-      className="mainPanel
-  "
-    ></div>
-  );
+  return;
 }
 
 export default MainPanel;
