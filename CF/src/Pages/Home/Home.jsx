@@ -1,6 +1,7 @@
 import "./Home.css";
 import LeftPanel from "./LeftPanel/LeftPanel";
 import MainPanel from "./MainPanel/MainPanel";
+import React from "react";
 function Home() {
   return (
     <>

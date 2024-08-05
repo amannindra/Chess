@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import ErrorBoundary from "./ErrorBoundary";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home/Home";
-
+import React from "react";
 ("use strict");
 function App() {
   const [data, setData] = useState(null);

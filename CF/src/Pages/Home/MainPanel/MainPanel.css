@@ -1,0 +1,9 @@
+.MainPanel {
+  height: 100vh;
+  flex: 5;
+  display: flex;
+  background-color: #312e2b;
+  color:red;
+  flex-direction: column;
+  
+}

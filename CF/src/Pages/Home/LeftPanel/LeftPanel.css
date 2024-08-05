@@ -1,0 +1,6 @@
+.leftPanel {
+  display: flex;
+  flex: 0.5;
+  height: 100vh;
+  background-color: #262421;
+}

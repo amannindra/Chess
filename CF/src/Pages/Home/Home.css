@@ -1,0 +1,8 @@
+.layout {
+  display: flex;
+  flex-direction: colomn;
+}
+* {
+  margin: 0;
+  outline: 0;
+}
