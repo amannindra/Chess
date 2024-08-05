@@ -3,7 +3,6 @@
   flex: 5;
   display: flex;
   background-color: #312e2b;
-  color:red;
+  color: red;
   flex-direction: column;
-  
 }
