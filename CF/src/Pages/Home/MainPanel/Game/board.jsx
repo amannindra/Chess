@@ -13,7 +13,7 @@ import WRook from "./Images/wRook.png";
 import WKnight from "./Images/wKnight.png";
 import WKing from "./Images/wKing.png";
 import WPawn from "./Images/wPawn.png";
-import "./board.css"
+import "./board.css";
 
 // function start(setGame) {
 //   for (let x = 0; x < 8; x++) {
@@ -63,6 +63,7 @@ function Board(props) {
     for (let j = 0; j < 8; j++) {
       // console.log("This is: " + i + ":" + j + ": (" + props.game[i][j] + ")");
       num += 1;
+      console.log(props.game);
       const piece = props.game[i][j];
       const image = getImageForPiece(piece);
       boardGame.push(

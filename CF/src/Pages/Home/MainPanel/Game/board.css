@@ -3,30 +3,20 @@
   height: 100px;
   background-color: skyblue;
 }
-* {
-  margin: 0;
-}
-body {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  background-color: black;
-  justify-content: center;
-  align-items: center;
-}
+
 .chessboard {
   display: grid;
   /* background-color: #87ceeb; white #eafffa, green #81b64c */
-  width: 640px;
-  height: 640px;
+  width: fit-content;
+  height: 50%;
   justify-content: center;
   align-items: center;
   background-color: white;
-  grid-template-columns: repeat(8,80px);
-  grid-template-rows: repeat(8,80px);
+  grid-template-columns: repeat(8, 80px);
+  grid-template-rows: repeat(8, 80px);
 }
 
-.chessboard .cell{
+.chessboard .cell {
   display: flex;
   position: relative;
   justify-content: center;
@@ -38,17 +28,17 @@ body {
   height: 80px;
   z-index: 0;
 }
-.green-cell{
+.green-cell {
   background-color: #81b64c;
 }
-.white-cell{
+.white-cell {
   background-color: #eafffa;
 }
-.red-cell{
+.red-cell {
   background-color: #fa3838;
 }
 
-.click-cell{
+.click-cell {
   background-color: "#c7c704";
 }
 
@@ -59,13 +49,13 @@ body {
   max-width: 100%;
   max-height: 100%;
 }
-.cell button{
-  max-width: 100%;
-  max-height: 100%;
+.cell button {
+  max-width: 11.25vw;
+  max-height: 11.25vh;
 }
 
-.Numbers{
-  position:absolute;
+.Numbers {
+  position: absolute;
   font-size: small;
   color: black;
   top: 5px;
