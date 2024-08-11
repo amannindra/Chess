@@ -3,7 +3,18 @@ import Blitz from "./images/blitz.svg";
 import Computer from "./images/computer.svg";
 import Friend from "./images/friend.svg";
 import Hand from "./images/playwhite.cea685ba.svg";
+import { Link } from "react-router-dom";
 function ChoosePanel() {
+  const sendOnline = () => {
+    <Link to="/online" />;
+  };
+  const sendComputer = () => {
+    <Link to="/computer" />;
+  };
+  const sendFriend = () => {
+    <Link to="/friend" />;
+  };
+
   return (
     <div className="Choose">
       <div className="lim">
@@ -11,7 +22,7 @@ function ChoosePanel() {
         <div className="handimage">
           <img src={Hand} />
         </div>
-        <div className="cube">
+        <div className="cube" onClick={() => sendOnline()}>
           <img src={Blitz} />
           <div className="boxtext">
             <span className="title">Play Online</span>
@@ -20,7 +31,7 @@ function ChoosePanel() {
             </span>
           </div>
         </div>
-        <div className="cube">
+        <div className="cube" onClick={() => sendComputer()}>
           <img src={Computer} />
           <div className="boxtext">
             <span className="title">Computer</span>
@@ -29,7 +40,7 @@ function ChoosePanel() {
             </span>
           </div>
         </div>
-        <div className="cube">
+        <div className="cube" onClick={() => sendFriend()}>
           <img src={Friend} />
           <div className="boxtext">
             <span className="title">Play a Friend</span>

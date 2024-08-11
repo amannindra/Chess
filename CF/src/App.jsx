@@ -7,16 +7,16 @@ import Home from "./Pages/Home/Home";
 import React from "react";
 ("use strict");
 function App() {
-
-
   // if (!data) return <div>Loading...</div>;
 
-  
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home page="choose" />} />
+          <Route path="/online" element={<Home page="online" />} />
+          <Route path="/friend" element={<Home page="friend"/>} />
+          <Route path="/computer" element={<Home page="computer" />} />
           {/* <Route path="/play" element={<Play />} /> */}
         </Routes>
       </BrowserRouter>

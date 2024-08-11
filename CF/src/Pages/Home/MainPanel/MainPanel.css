@@ -5,6 +5,7 @@
   background-color: #312e2b;
   color: red;
   flex-direction: row;
+
 }
 .display {
   display: flex;

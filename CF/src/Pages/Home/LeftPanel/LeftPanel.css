@@ -4,12 +4,12 @@
   justify-content: space-between;
   background-color: #262421;
   max-width: fit-content;
-  flex: 2;
+  flex: 1;
   height: 100vh;
   .TopPanel {
     display: flex;
     height: fit-content;
-
+    user-select: none;
     flex-direction: column;
     align-items: center;
     font-weight: 700;
@@ -53,6 +53,7 @@
     height: fit-content;
     flex-direction: column;
     font-weight: 700;
+    user-select: none;
     color: white;
     font-size: 1rem;
     font-family: "Blinker", sans-serif;

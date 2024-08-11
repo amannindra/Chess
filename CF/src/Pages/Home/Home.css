@@ -3,8 +3,24 @@
   display: flex;
   flex-direction: row;
   background-color: #312e2b;
-  align-items: center;
+
   gap: 2rem;
+
+  .down {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+  }
+  @media (max-width: 70rem) {
+    .down {
+      flex-direction: column;
+    }
+    .MainPanel,
+    .StartPanel {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+  }
 }
 * {
   margin: 0;

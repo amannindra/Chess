@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import Opponent from "./images/opponent.jpeg";
 
 import Board from "./Game/board";
-function MainPanel() {
+function MainPanel(props) {
   const [data, setData] = useState();
   const [game, setGame] = useState([
     [
@@ -84,6 +84,7 @@ function MainPanel() {
             <span className="playername">Opponent</span>
           </div>
           <Board
+            enable={props.enable}
             data={data}
             setData={setData}
             game={game}

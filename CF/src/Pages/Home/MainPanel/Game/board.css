@@ -8,10 +8,9 @@
   display: grid;
   /* background-color: #87ceeb; white #eafffa, green #81b64c */
   width: fit-content;
-  height: 50%;
+  height: fit-content;
   justify-content: center;
   align-items: center;
-  background-color: white;
   grid-template-columns: repeat(8, 80px);
   grid-template-rows: repeat(8, 80px);
 }
@@ -60,4 +59,17 @@
   color: black;
   top: 5px;
   left: 5px;
+}
+
+.topleftborder {
+  border-top-left-radius: 10px;
+}
+.toprightborder {
+  border-top-right-radius: 10px;
+}
+.bottomleftborder {
+  border-bottom-left-radius: 10px;
+}
+.bottomrightborder {
+  border-bottom-right-radius: 10px;
 }

@@ -178,9 +178,21 @@ function Piece(props) {
 
   let numbers = props.xposition + props.yposition; // + 2
   // console.log(typeof props.setGame);
+
+  let colors = numbers % 2 == 0 ? "cell green-cell" : "cell white-cell";
+
+  if (props.xposition == 0 && props.yposition == 0) {
+    colors += " topleftborder";
+  } else if (props.xposition == 7 && props.yposition == 0) {
+    colors += " bottomleftborder";
+  } else if (props.xposition == 7 && props.yposition == 7) {
+    colors += " bottomrightborder";
+  } else if (props.xposition == 0 && props.yposition == 7) {
+    colors += " toprightborder";
+  }
   return (
     <div
-      className={numbers % 2 == 0 ? "cell green-cell" : "cell white-cell"}
+      className={colors}
       id={props.xposition + "." + props.yposition}
       onClick={handleCurrentPiece(
         props.currentPiece,
@@ -195,7 +207,7 @@ function Piece(props) {
         props.currentPlayer
       )}
     >
-      <div className="Numbers">{props.xposition + "." + props.yposition}</div>
+      <div className="Numbers"> {props.xposition + "." + props.yposition} </div>
       <img src={props.Character ? props.Character : null} />
     </div>
   );
