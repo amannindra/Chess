@@ -1,67 +1,28 @@
 .MainPanel {
-  justify-content: center;
+  align-items: center;
   height: 100vh;
-  flex: 10;
   display: flex;
   background-color: #312e2b;
   color: red;
-  flex-direction: column;
+  flex-direction: row;
 }
 .display {
-  margin-left: 20px;
   display: flex;
-  height: calc(
-    calc(
-        (
-            (
-                (
-                    (
-                        max(
-                            26.4rem,
-                            min(
-                              min(
-                                100dvw - 5rem - 1.2rem - 1.6rem -
-                                  calc(1.6rem * 2) - 1rem - 3rem - 30rem - 0rem -
-                                  0rem - 0rem,
-                                100dvw - 5rem - 1.2rem - 1.6rem -
-                                  calc(1.6rem * 2) - 1rem - 3rem - 30rem - 0rem -
-                                  0rem - 0rem
-                              ),
-                              (
-                                  100dvh - 0rem - 0rem - calc(4rem * 2) - 1.6rem -
-                                    1.6rem - 1rem - 1rem - 0rem - 0rem
-                                ) / 1
-                            )
-                          ) / 8
-                      ) - (0.05rem - 1e-10rem)
-                  ) * 4.9406564584124654e-324
-              ) / 4.9406564584124654e-324
-          ) * 8
-      ) * 1
-  );
-  width: calc(
-    (
-        (
-            (
-                (
-                    max(
-                        26.4rem,
-                        min(
-                          min(
-                            100dvw - 5rem - 1.2rem - 1.6rem - calc(1.6rem * 2) -
-                              1rem - 3rem - 30rem - 0rem - 0rem - 0rem,
-                            100dvw - 5rem - 1.2rem - 1.6rem - calc(1.6rem * 2) -
-                              1rem - 3rem - 30rem - 0rem - 0rem - 0rem
-                          ),
-                          (
-                              100dvh - 0rem - 0rem - calc(4rem * 2) - 1.6rem -
-                                1.6rem - 1rem - 1rem - 0rem - 0rem
-                            ) / 1
-                        )
-                      ) / 8
-                  ) - (0.05rem - 1e-10rem)
-              ) * 4.9406564584124654e-324
-          ) / 4.9406564584124654e-324
-      ) * 8
-  );
+  border-radius: 10px;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  .player {
+    align-items: center;
+    column-gap: 0.8rem;
+    display: flex;
+    font-family: "Blinker", sans-serif;
+    font-weight: 600;
+    color: white;
+    img {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 7.5%;
+    }
+  }
 }

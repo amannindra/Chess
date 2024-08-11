@@ -1,6 +1,9 @@
 import "./MainPanel.css";
 import React from "react";
 import { useState, useEffect } from "react";
+
+import Opponent from "./images/opponent.jpeg";
+
 import Board from "./Game/board";
 function MainPanel() {
   const [data, setData] = useState();
@@ -76,6 +79,10 @@ function MainPanel() {
     <>
       <div className="MainPanel">
         <div className="display">
+          <div className="player">
+            <img src={Opponent} />
+            <span className="playername">Opponent</span>
+          </div>
           <Board
             data={data}
             setData={setData}
@@ -90,10 +97,13 @@ function MainPanel() {
             setCheckMate={setCheckMate}
             setGame={setGame}
           ></Board>
+          <div className="player">
+            <img src={Opponent} />
+            <span className="playername">You</span>
+          </div>
         </div>
       </div>
     </>
   );
 }
-
 export default MainPanel;
