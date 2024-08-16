@@ -70,6 +70,7 @@ function Board(props) {
         <Piece
           key={`${i}-${j}`} //No change here
           num={num}
+          enable={props.enable}
           currentPiece={props.currentPiece}
           setcurrentPiece={props.setcurrentPiece}
           xposition={i}

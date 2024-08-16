@@ -12,6 +12,8 @@ function Home(props) {
         <LeftPanel />
         <div className="down">
           <MainPanel enable={enable} setenable={setenable} />
+        </div>
+        <div className="panelbackend">
           <ChoosePanel />
         </div>
 
