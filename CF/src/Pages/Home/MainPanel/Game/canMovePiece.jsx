@@ -1,63 +1,57 @@
 function canMovePiece(props) {
-  if (!props.currentPiece) return false; // No piece selected
+  let currentPiece = props.gameState.currentPiece;
+  let currentPlayer = props.gameState.currentPlayer;
+  let piecePosition = props.gameState.piecePosition;
+  let game = props.game;
+  if (!currentPiece) return false; // No piece selected
 
   // Extract the piece color ('w' for white, 'b' for black)
-  const pieceColor = props.currentPiece[0];
+  const pieceColor = currentPiece[0];
 
   // Check if it's the correct player's turn
   if (
-    (pieceColor === "W" && props.currentPlayer !== "White") ||
-    (pieceColor === "B" && props.currentPlayer !== "Black")
+    (pieceColor === "W" && currentPlayer !== "White") ||
+    (pieceColor === "B" && currentPlayer !== "Black")
   ) {
     return false; // Not this player's turn
   }
 
   // Define movement rules for each piece type
-  switch (props.currentPiece) {
+  switch (currentPiece) {
     case "wRook":
-      return canMoveRook(
-        props.piecePosition,
-        props.targetX,
-        props.targetY,
-        props.game
-      );
+      return canMoveRook(piecePosition, props.xposition, props.yposition, game);
     case "wKnight":
-      return canMoveKnight(props.piecePosition, props.targetX, props.targetY);
+      return canMoveKnight(piecePosition, props.xposition, props.yposition);
     case "wBishop":
       return canMoveBishop(
-        props.piecePosition,
-        props.targetX,
-        props.targetY,
-        props.game
+        piecePosition,
+        props.xposition,
+        props.yposition,
+        game
       );
     case "wQueen":
       return canMoveQueen(
-        props.piecePosition,
-        props.targetX,
-        props.targetY,
-        props.game
+        piecePosition,
+        props.xposition,
+        props.yposition,
+        game
       );
     case "wKing":
-      return canMoveKing(
-        props.piecePosition,
-        props.targetX,
-        props.targetY,
-        props.game
-      );
+      return canMoveKing(piecePosition, props.xposition, props.yposition, game);
     case "bPawn":
       return canMovePawn(
-        props.piecePosition,
-        props.targetX,
-        props.targetY,
-        props.game,
+        piecePosition,
+        props.xposition,
+        props.yposition,
+        game,
         "B"
       );
     case "wPawn":
       return canMovePawn(
-        props.piecePosition,
-        props.targetX,
-        props.targetY,
-        props.game,
+        piecePosition,
+        props.xposition,
+        props.yposition,
+        game,
         "W"
       );
     default:
@@ -155,5 +149,3 @@ function canMovePawn([x, y], targetX, targetY, game, color) {
 
   return false;
 }
-
-export default canMovePiece;
