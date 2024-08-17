@@ -35,10 +35,15 @@ function MainPanel(props) {
       "WRook",
     ],
   ]);
-  const [piecePosition, setpiecePosition] = useState(null);
-  const [currentPiece, setcurrentPiece] = useState("A");
-  const [currentPlayer, setcurrentPlayer] = useState("W");
-  const [checkMate, setCheckMate] = useState(false);
+  const [gameState, setgameState] = useState({
+    piecePosition: null,
+    currentPiece: "A",
+    currentPlayer: "W",
+    checkMate: false,
+    moves: [0, 0],
+    checkMate: false,
+  });
+
   // const handleUpload = (data) => {
   //   console.log("handleUpload");
   //   axios({
@@ -88,15 +93,9 @@ function MainPanel(props) {
             data={data}
             setData={setData}
             game={game}
-            piecePosition={piecePosition}
-            setpiecePosition={setpiecePosition}
-            currentPiece={currentPiece}
-            setcurrentPiece={setcurrentPiece}
-            currentPlayer={currentPlayer}
-            setcurrentPlayer={setcurrentPlayer}
-            checkMate={checkMate}
-            setCheckMate={setCheckMate}
             setGame={setGame}
+            gameState={gameState}
+            setgameState={setgameState}
           ></Board>
           <div className="player">
             <img src={Opponent} />

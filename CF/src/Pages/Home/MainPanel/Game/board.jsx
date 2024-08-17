@@ -70,17 +70,13 @@ function Board(props) {
           key={`${i}-${j}`} //No change here
           num={num}
           enable={true}
-          currentPiece={props.currentPiece}
-          setcurrentPiece={props.setcurrentPiece}
           xposition={i}
           yposition={j}
           game={props.game}
           setGame={props.setGame}
           Character={image}
-          piecePosition={props.piecePosition}
-          setpiecePosition={props.setpiecePosition}
-          currentPlayer={props.currentPlayer}
-          setcurrentPlayer={props.setcurrentPlayer}
+          gameState={props.gameState}
+          setgameState={props.setgameState}
         />
       );
     }
