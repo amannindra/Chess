@@ -31,29 +31,29 @@ function Board(props) {
   let num = 0;
   const getImageForPiece = (piece) => {
     switch (piece) {
-      case "bRook":
+      case "BRook":
         return BRook;
-      case "bKnight":
+      case "BKnight":
         return BKnight;
-      case "bBishop":
+      case "BBishop":
         return BBishop;
-      case "bQueen":
+      case "BQueen":
         return BQueen;
-      case "bKing":
+      case "BKing":
         return BKing;
-      case "bPawn":
+      case "BPawn":
         return BPawn;
-      case "wRook":
+      case "WRook":
         return WRook;
-      case "wKnight":
+      case "WKnight":
         return WKnight;
-      case "wBishop":
+      case "WBishop":
         return WBishop;
-      case "wQueen":
+      case "WQueen":
         return WQueen;
-      case "wKing":
+      case "WKing":
         return WKing;
-      case "wPawn":
+      case "WPawn":
         return WPawn;
       default:
         return null;
@@ -63,14 +63,13 @@ function Board(props) {
     for (let j = 0; j < 8; j++) {
       // console.log("This is: " + i + ":" + j + ": (" + props.game[i][j] + ")");
       num += 1;
-      console.log(props.game);
       const piece = props.game[i][j];
       const image = getImageForPiece(piece);
       boardGame.push(
         <Piece
           key={`${i}-${j}`} //No change here
           num={num}
-          enable={props.enable}
+          enable={true}
           currentPiece={props.currentPiece}
           setcurrentPiece={props.setcurrentPiece}
           xposition={i}

@@ -151,32 +151,45 @@ function Piece(props) {
     piecePosition,
     setpiecePosition,
     setcurrentPlayer,
-    currentPlayer
+    currentPlayer,
+    enable
   ) => {
     return (e) => {
-      if (currentPiece) {
-        if (
-          canMovePiece(
-            currentPiece,
-            piecePosition,
-            xposition,
-            yposition,
-            game,
-            currentPlayer
-          )
-        ) {
-          // Move piece logic
-          const gameCopy = [...game];
-          gameCopy[xposition][yposition] = currentPiece;
-          gameCopy[piecePosition[0]][piecePosition[1]] = "None";
-          setGame(gameCopy);
-          setcurrentPiece(null);
-          setcurrentPlayer(currentPlayer === "White" ? "Black" : "White");
-        }
-      } else {
-        if (game[xposition][yposition] !== "None") {
-          setcurrentPiece(game[xposition][yposition]);
-          setpiecePosition([xposition, yposition]);
+      if (enable) {
+        let checkColor = currentPiece.charAt(0);
+        console.log(`checkColor: ${checkColor}`);
+        console.log(`currentPlayer: ${currentPlayer}`);
+        console.log(
+          `game[xposition][yposition]: ${game[xposition][yposition]}`
+        );
+
+        if (currentPiece) {
+          if (
+            canMovePiece(
+              currentPiece,
+              piecePosition,
+              xposition,
+              yposition,
+              game,
+              currentPlayer
+            )
+          ) {
+            // Move piece logic
+            console.log("WE SWITCHING!!!");
+            const gameCopy = [...game];
+            gameCopy[xposition][yposition] = currentPiece;
+            gameCopy[piecePosition[0]][piecePosition[1]] = "None";
+            setGame(gameCopy);
+            setcurrentPiece(null);
+            setcurrentPlayer(currentPlayer === "White" ? "Black" : "White");
+          }
+        } else {
+          do {
+            let s = game[xposition][yposition];
+            setcurrentPiece(s);
+            setpiecePosition([xposition, yposition]);
+            checkColor = s.charAt(0);
+          } while (checkColor !== currentPlayer);
         }
       }
     };
@@ -213,7 +226,8 @@ function Piece(props) {
         props.piecePosition,
         props.setpiecePosition,
         props.setcurrentPlayer,
-        props.currentPlayer
+        props.currentPlayer,
+        props.enable
       )}
     >
       <div className="Numbers"> {props.xposition + "." + props.yposition} </div>

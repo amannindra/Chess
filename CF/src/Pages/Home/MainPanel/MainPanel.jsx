@@ -9,35 +9,35 @@ function MainPanel(props) {
   const [data, setData] = useState();
   const [game, setGame] = useState([
     [
-      "bRook",
-      "bKnight",
-      "bBishop",
-      "bQueen",
-      "bKing",
-      "bBishop",
-      "bKnight",
-      "bRook",
+      "BRook",
+      "BKnight",
+      "BBishop",
+      "BQueen",
+      "BKing",
+      "BBishop",
+      "BKnight",
+      "BRook",
     ],
-    ["bPawn", "bPawn", "bPawn", "bPawn", "bPawn", "bPawn", "bPawn", "bPawn"],
+    ["BPawn", "BPawn", "BPawn", "BPawn", "BPawn", "BPawn", "BPawn", "BPawn"],
     ["None", "None", "None", "None", "None", "None", "None", "None"],
     ["None", "None", "None", "None", "None", "None", "None", "None"],
     ["None", "None", "None", "None", "None", "None", "None", "None"],
     ["None", "None", "None", "None", "None", "None", "None", "None"],
-    ["wPawn", "wPawn", "wPawn", "wPawn", "wPawn", "wPawn", "wPawn", "wPawn"],
+    ["WPawn", "WPawn", "WPawn", "WPawn", "WPawn", "WPawn", "WPawn", "WPawn"],
     [
-      "wRook",
-      "wKnight",
-      "wBishop",
-      "wQueen",
-      "wKing",
-      "wBishop",
-      "wKnight",
-      "wRook",
+      "WRook",
+      "WKnight",
+      "WBishop",
+      "WQueen",
+      "WKing",
+      "WBishop",
+      "WKnight",
+      "WRook",
     ],
   ]);
   const [piecePosition, setpiecePosition] = useState(null);
-  const [currentPiece, setcurrentPiece] = useState(null);
-  const [currentPlayer, setcurrentPlayer] = useState("White");
+  const [currentPiece, setcurrentPiece] = useState("A");
+  const [currentPlayer, setcurrentPlayer] = useState("W");
   const [checkMate, setCheckMate] = useState(false);
   // const handleUpload = (data) => {
   //   console.log("handleUpload");
