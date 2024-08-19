@@ -1,5 +1,5 @@
 "use strict";
-import React, { useEffect } from "react";
+import React from "react";
 import Piece from "./Piece.jsx";
 import BBishop from "./Images/bBishop.png";
 import BKing from "./Images/bKing.png";
@@ -15,20 +15,7 @@ import WKing from "./Images/wKing.png";
 import WPawn from "./Images/wPawn.png";
 import "./board.css";
 
-// function start(setGame) {
-//   for (let x = 0; x < 8; x++) {
-//     const row = [];
-//     for (let y = 0; y < 8; y++) {
-//       return;
-//     }
-//   }
-// }
-
 function Board(props) {
-  // const verticalAxis = ["1", "2", "3", "4", "5", "6", "7", "8"];
-  // const horizontalAxis = ["a", "b", "c", "d", "e", "f", "g", "h"];
-  let boardGame = [];
-  let num = 0;
   const getImageForPiece = (piece) => {
     switch (piece) {
       case "BRook":
@@ -59,30 +46,33 @@ function Board(props) {
         return null;
     }
   };
-  for (let i = 0; i < 8; i++) {
-    for (let j = 0; j < 8; j++) {
-      // console.log("This is: " + i + ":" + j + ": (" + props.game[i][j] + ")");
-      num += 1;
-      const piece = props.game[i][j];
-      const image = getImageForPiece(piece);
-      boardGame.push(
-        <Piece
-          key={`${i}-${j}`} //No change here
-          num={num}
-          enable={true}
-          xposition={i}
-          yposition={j}
-          game={props.game}
-          setGame={props.setGame}
-          Character={image}
-          gameState={props.gameState}
-          setGameState={props.setGameState}
-        />
-      );
-    }
-  }
 
-  return <div className="chessboard">{boardGame}</div>;
+  const renderBoard = () => {
+    const boardGame = [];
+    for (let i = 0; i < 8; i++) {
+      for (let j = 0; j < 8; j++) {
+        const piece = props.game[i][j];
+        const image = getImageForPiece(piece);
+
+        boardGame.push(
+          <Piece
+            key={`${i}-${j}`}
+            enable={true}
+            xposition={i}
+            yposition={j}
+            game={props.game}
+            setGame={props.setGame}
+            Character={image}
+            gameState={props.gameState}
+            setGameState={props.setGameState}
+          />
+        );
+      }
+    }
+    return boardGame;
+  };
+
+  return <div className="chessboard">{renderBoard()}</div>;
 }
 
 export default Board;

@@ -1,15 +1,15 @@
 "use strict";
-function canMovePiece(props) {
-  console.log("GO In here")
-  let currentPiece = props.gameState.currentPiece;
-  let currentPlayer = props.gameState.currentPlayer;
-  let piecePosition = props.gameState.piecePosition;
-  let game = props.game;
-  if (!currentPiece) return false; // No piece selected
+function canMovePiece(xposition, yposition, game, gameState) {
+  
+  if (!gameState || !gameState.currentPiece) return false; // Added safeguard
+
+  const { currentPiece, currentPlayer, piecePosition } = gameState;
 
   // Extract the piece color ('w' for white, 'b' for black)
   const pieceColor = currentPiece[0];
-
+  console.log("before if");
+  console.log("pieceColor: " + pieceColor);
+  console.log("currentPlayer: " + currentPlayer);
   // Check if it's the correct player's turn
   if (
     (pieceColor === "W" && currentPlayer !== "White") ||
@@ -17,49 +17,37 @@ function canMovePiece(props) {
   ) {
     return false; // Not this player's turn
   }
-
+  console.log("before switch piece: " + currentPiece);
   // Define movement rules for each piece type
   switch (currentPiece) {
-    case "wRook":
-      return canMoveRook(piecePosition, props.xposition, props.yposition, game);
-    case "wKnight":
-      return canMoveKnight(piecePosition, props.xposition, props.yposition);
-    case "wBishop":
-      return canMoveBishop(
-        piecePosition,
-        props.xposition,
-        props.yposition,
-        game
-      );
-    case "wQueen":
-      return canMoveQueen(
-        piecePosition,
-        props.xposition,
-        props.yposition,
-        game
-      );
-    case "wKing":
-      return canMoveKing(piecePosition, props.xposition, props.yposition, game);
-    case "bPawn":
-      return canMovePawn(
-        piecePosition,
-        props.xposition,
-        props.yposition,
-        game,
-        "B"
-      );
-    case "wPawn":
-      return canMovePawn(
-        piecePosition,
-        props.xposition,
-        props.yposition,
-        game,
-        "W"
-      );
+    case "WRook":
+      console.log("wRook case");
+      return canMoveRook(piecePosition, xposition, yposition, game);
+    case "WKnight":
+      console.log("wKnight case");
+      return canMoveKnight(piecePosition, xposition, yposition);
+    case "WBishop":
+      console.log("wBishop case");
+      return canMoveBishop(piecePosition, xposition, yposition, game);
+    case "WQueen":
+      console.log("wQueen case");
+      return canMoveQueen(piecePosition, xposition, yposition, game);
+    case "WKing":
+      console.log("wKing case");
+      return canMoveKing(piecePosition, xposition, yposition, game);
+    case "BPawn":
+      console.log("bPawn case");
+      return canMovePawn(piecePosition, xposition, yposition, game, "B");
+    case "WPawn":
+      console.log("wPawn case");
+      console.log("sdsda");
+      return canMovePawn(piecePosition, xposition, yposition, game, "W");
     default:
+      console.log("false definition");
       return false;
   }
 }
+
 function canMoveRook([x, y], targetX, targetY, game) {
   // Rooks move in straight lines (either same row or same column)
   if (x !== targetX && y !== targetY) return false;
@@ -148,7 +136,7 @@ function canMovePawn([x, y], targetX, targetY, game, color) {
   ) {
     return true; // Capture move
   }
-
+  console.log("no conditions found");
   return false;
 }
 
