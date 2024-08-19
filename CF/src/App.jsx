@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import ErrorBoundary from "./ErrorBoundary";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home/Home";
+import NoPage from "./Pages/NoPage/NoPage";
 import React from "react";
 ("use strict");
 function App() {
@@ -15,8 +16,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home page="choose" />} />
           <Route path="/online" element={<Home page="online" />} />
-          <Route path="/friend" element={<Home page="friend"/>} />
+          <Route path="/friend" element={<Home page="friend" />} />
           <Route path="/computer" element={<Home page="computer" />} />
+          <Route path="*" element={<NoPage />} />
           {/* <Route path="/play" element={<Play />} /> */}
         </Routes>
       </BrowserRouter>

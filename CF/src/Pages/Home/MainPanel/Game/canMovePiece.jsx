@@ -1,4 +1,6 @@
+"use strict";
 function canMovePiece(props) {
+  console.log("GO In here")
   let currentPiece = props.gameState.currentPiece;
   let currentPlayer = props.gameState.currentPlayer;
   let piecePosition = props.gameState.piecePosition;
@@ -149,3 +151,5 @@ function canMovePawn([x, y], targetX, targetY, game, color) {
 
   return false;
 }
+
+export default canMovePiece;

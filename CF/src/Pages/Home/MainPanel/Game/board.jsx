@@ -76,7 +76,7 @@ function Board(props) {
           setGame={props.setGame}
           Character={image}
           gameState={props.gameState}
-          setgameState={props.setgameState}
+          setGameState={props.setGameState}
         />
       );
     }

@@ -35,7 +35,7 @@ function MainPanel(props) {
       "WRook",
     ],
   ]);
-  const [gameState, setgameState] = useState({
+  const [gameState, setGameState] = useState({
     piecePosition: null,
     currentPiece: "A",
     currentPlayer: "W",
@@ -95,7 +95,7 @@ function MainPanel(props) {
             game={game}
             setGame={setGame}
             gameState={gameState}
-            setgameState={setgameState}
+            setgameState={setGameState}
           ></Board>
           <div className="player">
             <img src={Opponent} />

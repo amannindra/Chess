@@ -1,9 +1,8 @@
 .lim {
   height: 100%;
-  width: 105%;
+  width: 20vw;
   flex-direction: column;
   display: flex;
-
   align-items: center;
   h1 {
     font-size: 3.1rem;

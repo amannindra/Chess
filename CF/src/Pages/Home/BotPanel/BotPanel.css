@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&family=Inter:wght@100..900&display=swap");
+
+.container {
+  height: 100%;
+  width: 20vw;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: white;
+  caret-color: transparent;
+  h1 {
+    font-size: 3.1rem;
+    margin-top: 20px;
+    font-family: "Blinker", sans-serif;
+  }
+  img {
+    width: 7.5vw;
+    border-radius: 10px;
+  }
+  h2 {
+    font-size: 1.5rem;
+    font-family: "Blinker", sans-serif;
+  }
+  p {
+    text-align: center;
+    font-family: "Blinker", sans-serif;
+  }
+  .coach {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    img {
+      width: 3.5vw;
+    }
+  }
+  button {
+    width: 100%;
+    height: 5vh;
+    font-family: "Blinker", sans-serif;
+    font-size: 1.5rem;
+    background-color: #81b64c;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 0.5rem;
+    &:hover {
+      background-color: #a1e23f;
+    }
+  }
+  .bot-border {
+    border: 1px solid black;
+  }
+}

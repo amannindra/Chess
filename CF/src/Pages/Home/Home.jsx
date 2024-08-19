@@ -3,6 +3,7 @@ import LeftPanel from "./LeftPanel/LeftPanel";
 import MainPanel from "./MainPanel/MainPanel";
 import StartPanel from "./StartPanel/StartPanel";
 import ChoosePanel from "./ChoosePanel/ChoosePanel";
+import BotPanel from "./BotPanel/BotPanel";
 import { useState } from "react";
 function Home(props) {
   const [enable, setenable] = useState(false);
@@ -14,13 +15,10 @@ function Home(props) {
           <MainPanel enable={enable} setenable={setenable} />
         </div>
         <div className="panelbackend">
-          <ChoosePanel />
+          {props.page === "choose" && <ChoosePanel />}
+          {props.page === "online" && <StartPanel />}
+          {props.page === "computer" && <BotPanel />}
         </div>
-
-        {/* {props.page === "choose" && <ChoosePanel />}
-        {props.page === "online" && <OnlinePanel />}
-        {props.page === "2player" && <TwoPlayerPanel />}
-        {props.page === "computer" && <ComputerPanel />} */}
       </div>
     </>
   );

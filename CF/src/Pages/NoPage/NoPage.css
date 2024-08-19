@@ -1,0 +1,21 @@
+.no {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-family: "Blinker", sans-serif;
+  color: white;
+
+  h1 {
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color: gray;
+    user-select: none;
+
+    &:hover {
+      background-color: rgb(65, 65, 65);
+    }
+  }
+}
