@@ -1,19 +1,39 @@
 import "./LeftPanel.css";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 function LeftPanel() {
+  const navigate = useNavigate();
   return (
     <>
       <div className="LeftPanel">
         <div className="TopPanel">
-          <div id="title">Chess</div>
-          <div className="block">Play</div>
-          <div className="block">Puzzeles</div>
-          <div className="block">Learn</div>
-          <div className="block">Watch</div>
-          <div className="block">News</div>
-          <div className="block">Social</div>
-          <div className="block">More</div>
-          <div className="block">Free Trail</div>
+          <div id="title" onClick={() => navigate("/")}>
+            Chess
+          </div>
+          <div className="block" onClick={() => navigate("/nopage")}>
+            Play
+          </div>
+          <div className="block" onClick={() => navigate("/nopage")}>
+            Puzzeles
+          </div>
+          <div className="block" onClick={() => navigate("/nopage")}>
+            Learn
+          </div>
+          <div className="block" onClick={() => navigate("/nopage")}>
+            Watch
+          </div>
+          <div className="block" onClick={() => navigate("/nopage")}>
+            News
+          </div>
+          <div className="block" onClick={() => navigate("/nopage")}>
+            Social
+          </div>
+          <div className="block" onClick={() => navigate("/nopage")}>
+            More
+          </div>
+          <div className="block" onClick={() => navigate("/nopage")}>
+            Free Trail
+          </div>
           <input type="text" id="search" placeholder="Search" />
         </div>
         <div className="bottomPanel">

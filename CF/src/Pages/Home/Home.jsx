@@ -10,7 +10,7 @@ function Home(props) {
   return (
     <>
       <div className="layout">
-        <LeftPanel />
+        <LeftPanel page={props.page} setpage={props.setpage} />
         <div className="down">
           <MainPanel enable={enable} setenable={setenable} />
         </div>

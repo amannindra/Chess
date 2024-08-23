@@ -6,7 +6,7 @@ import Natasha from "./images/natasha.png";
 import Nisha from "./images/nisha.png";
 import Tomas from "./images/tomas.png";
 
-function BotPanel() {
+function BotPanel(props) {
   const [botData, setbotData] = useState({
     Jimmy: 600,
     Nisha: 900,
@@ -103,7 +103,7 @@ function BotPanel() {
           <img src={Devon} onClick={() => changeBot("Devon")} />
           <img src={Natasha} onClick={() => changeBot("Natasha")} />
         </div>
-        <button>Play</button>
+        <button onClick={() => props.setenable(true)}>Play</button>
       </div>
     </>
   );
