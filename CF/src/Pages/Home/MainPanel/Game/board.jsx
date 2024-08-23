@@ -57,7 +57,7 @@ function Board(props) {
         boardGame.push(
           <Piece
             key={`${i}-${j}`}
-            enable={true}
+            enable={props.enable}
             xposition={i}
             yposition={j}
             game={props.game}

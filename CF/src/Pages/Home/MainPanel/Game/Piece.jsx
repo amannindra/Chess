@@ -17,9 +17,9 @@ function Piece(props) {
         let currentPiece = gameState.currentPiece;
         let currentPlayer = gameState.currentPlayer;
         let piecePosition = gameState.piecePosition;
+        let kingPosition = gameState.kingPosition; // Get current king position
 
         const selectedPiece = game[xposition][yposition];
-        console.log("selectedPiece: " + selectedPiece);
 
         // If no piece is selected yet or the player selects a new piece of their own
         if (
@@ -39,11 +39,18 @@ function Piece(props) {
           const gameCopy = [...game];
           gameCopy[xposition][yposition] = currentPiece;
           gameCopy[piecePosition[0]][piecePosition[1]] = "None";
+
+          // Update king position if the king moved
+          if (currentPiece === "WKing" || currentPiece === "BKing") {
+            kingPosition = [xposition, yposition];
+          }
+
           setGame(gameCopy);
           setGameState({
             ...gameState,
             currentPiece: null,
             currentPlayer: currentPlayer === "White" ? "Black" : "White",
+            kingPosition, // Update the king's position in gameState
           });
         }
       }

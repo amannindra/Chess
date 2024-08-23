@@ -15,9 +15,15 @@ function Home(props) {
           <MainPanel enable={enable} setenable={setenable} />
         </div>
         <div className="panelbackend">
-          {props.page === "choose" && <ChoosePanel />}
-          {props.page === "online" && <StartPanel />}
-          {props.page === "computer" && <BotPanel />}
+          {props.page === "choose" && (
+            <ChoosePanel enable={enable} setenable={setenable} />
+          )}
+          {props.page === "online" && (
+            <StartPanel enable={enable} setenable={setenable} />
+          )}
+          {props.page === "computer" && (
+            <BotPanel enable={enable} setenable={setenable} />
+          )}
         </div>
       </div>
     </>

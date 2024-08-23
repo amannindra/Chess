@@ -37,11 +37,14 @@ function MainPanel(props) {
   ]);
   const [gameState, setGameState] = useState({
     piecePosition: null,
-    currentPiece: "A",
+    currentPiece: null,
     currentPlayer: "White",
     checkMate: false,
     moves: [0, 0],
-    checkMate: false,
+    kingPosition: {
+      White: [7, 4], // Initial position of White King
+      Black: [0, 4], // Initial position of Black King
+    },
   });
 
   // const handleUpload = (data) => {
@@ -79,7 +82,7 @@ function MainPanel(props) {
   //       console.error(err);
   //     });
   // }, []);
-
+  console.log("main panel: " + props.enable);
   return (
     <>
       <div className="MainPanel">
@@ -88,6 +91,7 @@ function MainPanel(props) {
             <img src={Opponent} />
             <span className="playername">Opponent</span>
           </div>
+
           <Board
             enable={props.enable}
             data={data}

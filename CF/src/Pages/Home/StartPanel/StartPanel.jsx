@@ -1,6 +1,6 @@
 import "./StartPanel.css";
 import { useState } from "react";
-function StartPanel() {
+function StartPanel(props) {
   const [time, settime] = useState(1);
   const [addingTime, setaddingTime] = useState(false);
   const addTime = () => {
@@ -29,7 +29,7 @@ function StartPanel() {
           {time} min
         </button>
         {addingTime ? addTime() : null}
-        <button type="button" id="Play">
+        <button type="button" id="Play" onClick={() => props.setenable(true)}>
           Play
         </button>
         <button type="button" id="friend">

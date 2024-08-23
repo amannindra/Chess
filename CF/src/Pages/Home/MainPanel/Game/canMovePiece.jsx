@@ -1,51 +1,125 @@
 "use strict";
 function canMovePiece(xposition, yposition, game, gameState) {
-  
-  if (!gameState || !gameState.currentPiece) return false; // Added safeguard
+  if (!gameState || !gameState.currentPiece) return false;
 
-  const { currentPiece, currentPlayer, piecePosition } = gameState;
-
-  // Extract the piece color ('w' for white, 'b' for black)
+  const { currentPiece, currentPlayer, piecePosition, kingPosition } =
+    gameState;
   const pieceColor = currentPiece[0];
-  console.log("before if");
-  console.log("pieceColor: " + pieceColor);
-  console.log("currentPlayer: " + currentPlayer);
-  // Check if it's the correct player's turn
+  const opponentColor = currentPlayer === "White" ? "B" : "W";
+
+  // Get the current king's position
+  let currentKingPosition = kingPosition[currentPlayer];
+
   if (
     (pieceColor === "W" && currentPlayer !== "White") ||
     (pieceColor === "B" && currentPlayer !== "Black")
   ) {
     return false; // Not this player's turn
   }
-  console.log("before switch piece: " + currentPiece);
-  // Define movement rules for each piece type
+
+  let validMove = false;
+
   switch (currentPiece) {
+    // White Pieces
     case "WRook":
-      console.log("wRook case");
-      return canMoveRook(piecePosition, xposition, yposition, game);
+      validMove = canMoveRook(piecePosition, xposition, yposition, game);
+      break;
     case "WKnight":
-      console.log("wKnight case");
-      return canMoveKnight(piecePosition, xposition, yposition);
+      validMove = canMoveKnight(piecePosition, xposition, yposition);
+      break;
     case "WBishop":
-      console.log("wBishop case");
-      return canMoveBishop(piecePosition, xposition, yposition, game);
+      validMove = canMoveBishop(piecePosition, xposition, yposition, game);
+      break;
     case "WQueen":
-      console.log("wQueen case");
-      return canMoveQueen(piecePosition, xposition, yposition, game);
+      validMove = canMoveQueen(piecePosition, xposition, yposition, game);
+      break;
     case "WKing":
-      console.log("wKing case");
-      return canMoveKing(piecePosition, xposition, yposition, game);
-    case "BPawn":
-      console.log("bPawn case");
-      return canMovePawn(piecePosition, xposition, yposition, game, "B");
+      validMove = canMoveKing(piecePosition, xposition, yposition, game);
+      // Update king position after a valid move
+      if (validMove) {
+        currentKingPosition = [xposition, yposition];
+      }
+      break;
     case "WPawn":
-      console.log("wPawn case");
-      console.log("sdsda");
-      return canMovePawn(piecePosition, xposition, yposition, game, "W");
+      validMove = canMovePawn(piecePosition, xposition, yposition, game, "W");
+      break;
+
+    // Black Pieces
+    case "BRook":
+      validMove = canMoveRook(piecePosition, xposition, yposition, game);
+      break;
+    case "BKnight":
+      validMove = canMoveKnight(piecePosition, xposition, yposition);
+      break;
+    case "BBishop":
+      validMove = canMoveBishop(piecePosition, xposition, yposition, game);
+      break;
+    case "BQueen":
+      validMove = canMoveQueen(piecePosition, xposition, yposition, game);
+      break;
+    case "BKing":
+      validMove = canMoveKing(piecePosition, xposition, yposition, game);
+      // Update king position after a valid move
+      if (validMove) {
+        currentKingPosition = [xposition, yposition];
+      }
+      break;
+    case "BPawn":
+      validMove = canMovePawn(piecePosition, xposition, yposition, game, "B");
+      break;
+
     default:
-      console.log("false definition");
-      return false;
+      validMove = false;
   }
+
+  if (validMove) {
+    // Simulate the move
+    const simulatedGame = JSON.parse(JSON.stringify(game)); // Deep clone the game state
+    simulatedGame[piecePosition[0]][piecePosition[1]] = "None";
+    simulatedGame[xposition][yposition] = currentPiece;
+
+    if (isKingInCheck(currentKingPosition, simulatedGame, opponentColor)) {
+      return false; // Move leaves king in check
+    }
+  }
+
+  return validMove;
+}
+function isKingInCheck(kingPosition, game, opponentColor) {
+  const [kingX, kingY] = kingPosition;
+
+  for (let i = 0; i < game.length; i++) {
+    for (let j = 0; j < game[i].length; j++) {
+      const piece = game[i][j];
+
+      if (piece.startsWith(opponentColor)) {
+        const pieceType = piece.substring(1); // Remove color prefix
+        switch (pieceType) {
+          case "Rook":
+            if (canMoveRook([i, j], kingX, kingY, game)) return true;
+            break;
+          case "Knight":
+            if (canMoveKnight([i, j], kingX, kingY)) return true;
+            break;
+          case "Bishop":
+            if (canMoveBishop([i, j], kingX, kingY, game)) return true;
+            break;
+          case "Queen":
+            if (canMoveQueen([i, j], kingX, kingY, game)) return true;
+            break;
+          case "King":
+            if (canMoveKing([i, j], kingX, kingY, game)) return true;
+            break;
+          case "Pawn":
+            if (canMovePawn([i, j], kingX, kingY, game, opponentColor))
+              return true;
+            break;
+        }
+      }
+    }
+  }
+
+  return false;
 }
 
 function canMoveRook([x, y], targetX, targetY, game) {
