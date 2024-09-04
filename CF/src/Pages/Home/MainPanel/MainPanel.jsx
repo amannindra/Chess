@@ -1,7 +1,7 @@
 import "./MainPanel.css";
 import React from "react";
 import { useState, useEffect } from "react";
-
+import io from "socket.io-client";
 import Opponent from "./images/opponent.jpeg";
 
 import Board from "./Game/board";
@@ -47,6 +47,17 @@ function MainPanel(props) {
     },
   });
 
+  const RealTimeComponent = () => {
+    useEffect(() => {
+      const socket = io("https://your-websocket-server.com");
+
+      return () => {
+        socket.disconnect();
+      }
+
+    }, []);
+
+  }
   // const handleUpload = (data) => {
   //   console.log("handleUpload");
   //   axios({
