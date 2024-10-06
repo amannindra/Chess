@@ -15,6 +15,8 @@ import WKing from "./Images/wKing.png";
 import WPawn from "./Images/wPawn.png";
 import "./board.css";
 
+const pieces  = 0;
+
 function Board(props) {
   const getImageForPiece = (piece) => {
     switch (piece) {
